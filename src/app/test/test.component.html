@@ -1,0 +1,32 @@
+<h1>Bienvenido al test</h1>
+<p>Pregunta {{ currentQuestionIndex + 1 }} de {{ totalQuestions }}</p>
+<div *ngIf="currentQuestion">
+  <h2>{{ currentQuestion.pregunta }}</h2>
+  <img [src]="'assets/images/' + currentQuestion.img" alt="">
+  <br>
+  <label>
+    <input type="radio" [(ngModel)]="selectedAnswer" [value]="currentQuestion.a" name="answer">
+    {{ currentQuestion.a }}
+  </label>
+  <br>
+  <label>
+    <input type="radio" [(ngModel)]="selectedAnswer" [value]="currentQuestion.b" name="answer">
+    {{ currentQuestion.b }}
+  </label>
+  <br>
+  <label>
+    <input type="radio" [(ngModel)]="selectedAnswer" [value]="currentQuestion.c" name="answer">
+    {{ currentQuestion.c }}
+  </label>
+  <br>
+  <button (click)="onSubmit()">Enviar respuesta</button>
+</div>
+
+<div class="question-status">
+  <p>Status:</p>
+  <div *ngFor="let status of questionStatus; let i = index" class="question-status-item" [ngClass]="{ 'completed': status }"></div>
+</div>
+
+<div *ngIf="finalMessage">
+  <h2>{{ finalMessage }}</h2>
+</div>

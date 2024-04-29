@@ -1,0 +1,9 @@
+<h2>Resultados</h2>
+<div *ngFor="let answer of answers; let i = index">
+  <p>Pregunta {{ i + 1 }}: {{ answer === currentQuestion.correcta[i] ? 'Correcta' : 'Incorrecta' }}</p>
+</div>
+<br>
+<h3>Comparativa:</h3>
+<div *ngFor="let correctAnswer of correctAnswers; let i = index">
+  <p>Pregunta {{ i + 1 }}: {{ correctAnswer }}</p>
+</div>
